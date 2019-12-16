@@ -38,8 +38,8 @@ chown www-data:www-data * -R
 sudo apt-get install nfs-common -y
 
 # Creamos el punto de montaje en el cliente NFS
-
-sudo mount   54.234.89.39:/var/www/html/wordpress/wp-content /var/www/html/wordpress/wp-content
+mkdir wordpress
+sudo mount 3.82.136.54:/var/www/html/wordpress/ /var/www/html/wordpress/
 
 
 
