@@ -54,7 +54,7 @@ sudo chown nobody:nogroup /var/www/html/wordpress/wp-content
 
 # Editamos el archivo /etc/exports
 cd /etc/
-echo "/var/www/html/wordpress/wp-content      34.201.117.162(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/var/www/html/wordpress/wp-content      3.83.142.176(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 
 
 # Reiniciamos el servicio nfs-kernel-server
