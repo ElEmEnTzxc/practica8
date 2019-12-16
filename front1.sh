@@ -41,7 +41,7 @@ mv wp-config-sample.php wp-config.php
 sed -i 's/database_name_here/wordpress/' wp-config.php
 sed -i 's/username_here/wordpress/' wp-config.php
 sed -i 's/password_here/wordpress/' wp-config.php
-sed -i 's/localhost/3.83.15.117/' wp-config.php
+sed -i 's/localhost/54.208.146.205/' wp-config.php
 
 # Concedemos permisos a Wordpress
 chown www-data:www-data * -R
@@ -54,7 +54,7 @@ sudo chown nobody:nogroup /var/www/html/wordpress/wp-content
 
 # Editamos el archivo /etc/exports
 cd /etc/
-echo "/var/www/html/wordpress/wp-content      52.205.164.138(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/var/www/html/wordpress/wp-content      35.173.133.252(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 
 
 # Reiniciamos el servicio nfs-kernel-server
