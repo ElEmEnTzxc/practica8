@@ -52,43 +52,7 @@ sudo apt-get install nfs-common -y
 # Creamos el punto de montaje en el cliente NFS
 sudo mount 3.86.142.103:/var/www/html/wordpress/wp-content /var/www/html/wordpress/wp-content
 
-# Editamos el archivo /etc/fstab
-cd /etc/
-echo "ipfrontal1:/var/www/html/wordpress/wp-content /var/www/html/wordpress/wp-content  nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
 
-# Dirección del sitio y direccion URL
-cd /var/www/html/wordpress/
-echo "define( 'WP_SITEURL', 'http://54.243.14.181/wordpress' );" >> wp-config.php
-echo "define( 'WP_HOME', 'http://54.243.14.181' );" >> wp-config.php
-
-# Configuración de WordPress en un directorio que no es el raíz
-sudo cp /var/www/html/wordpress/index.php /var/www/html/index.php
-cd /var/www/html/
-sed -i 's#wp-blog-header.php#wordpress/wp-blog-header.php#' index.php
-
-# Creamos un archivo .htaccess
-cd /home/ubuntu
-rm -r practica8
-sudo git clone https://github.com/ElEmEnTzxc/practica8.git
-mv /home/ubuntu/practica8/.htaccess /var/www/html/.htaccess
-
-#Creamos uploads
-mkdir /var/www/html/wordpress/wp-content/uploads -p
-
-# Security Keys
-#Borramos las keys
-sed -i '/AUTH_KEY/d' /var/www/html/wordpress/wp-config.php
-sed -i '/LOGGED_IN_KEY/d' /var/www/html/wordpress/wp-config.php
-sed -i '/NONCE_KEY/d' /var/www/html/wordpress/wp-config.php
-sed -i '/AUTH_SALT/d' /var/www/html/wordpress/wp-config.php
-sed -i '/SECURE_AUTH_SALT/d' /var/www/html/wordpress/wp-config.php
-sed -i '/LOGGED_IN_SALT/d' /var/www/html/wordpress/wp-config.php
-sed -i '/NONCE_SALT/d' /var/www/html/wordpress/wp-config.php
-
-#Añadimos las nuevas keys
-CLAVES=$(curl https://api.wordpress.org/secret-key/1.1/salt/)
-CLAVES=$(echo $CLAVES | tr / _)
-sed -i "/#@-/a $CLAVES" /var/www/html/wordpress/wp-config.php
 
 
 
