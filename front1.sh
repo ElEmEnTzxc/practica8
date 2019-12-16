@@ -54,7 +54,7 @@ sudo chown nobody:nogroup /var/www/html/wordpress/wp-content
 
 # Editamos el archivo /etc/exports
 cd /etc/
-echo "/var/www/html/wordpress/wp-content      3.83.142.176(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/var/www/html/wordpress/wp-content      52.205.164.138(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 
 
 # Reiniciamos el servicio nfs-kernel-server
@@ -62,8 +62,8 @@ sudo /etc/init.d/nfs-kernel-server restart
 
 # Dirección del sitio y direccion URL
 cd /var/www/html/wordpress/
-echo "define( 'WP_SITEURL', 'http://54.243.14.181/wordpress' );" >> wp-config.php
-echo "define( 'WP_HOME', 'http://54.243.14.181' );" >> wp-config.php
+echo "define( 'WP_SITEURL', 'http://52.23.233.247/wordpress' );" >> wp-config.php
+echo "define( 'WP_HOME', 'http://52.23.233.247' );" >> wp-config.php
 
 # Configuración de WordPress en un directorio que no es el raíz
 sudo cp /var/www/html/wordpress/index.php /var/www/html/index.php
