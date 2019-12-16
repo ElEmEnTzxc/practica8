@@ -50,11 +50,11 @@ chown www-data:www-data * -R
 sudo apt-get install nfs-kernel-server -y
 
 # Cambiamos los permisos al directorio que vamos a compartir
-sudo chown nobody:nogroup /var/www/html/wordpress/wp-content
+sudo chown nobody:nogroup /var/www/html/wordpress/
 
 # Editamos el archivo /etc/exports
 cd /etc/
-echo "/var/www/html/wordpress/wp-content      35.173.133.252(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/var/www/html/wordpress/     35.173.133.252(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 
 
 # Reiniciamos el servicio nfs-kernel-server
