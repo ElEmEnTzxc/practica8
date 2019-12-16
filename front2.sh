@@ -29,6 +29,13 @@ cd /etc/php/7.2/fpm/
 sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' php.ini
 
 
+# Descargamos Wordpress
+cd /var/www/html
+wget https://wordpress.org/latest.tar.gz
+
+# Descomprimimos el archivo recién descargado
+tar -zxvf latest.tar.gz
+
 # Concedemos permisos a Wordpress
 chown www-data:www-data * -R
 
@@ -36,11 +43,8 @@ chown www-data:www-data * -R
 sudo apt-get install nfs-common -y
 
 # Creamos el punto de montaje en el cliente NFS
-cd /var/www/html/
-mkdir wordpress
-cd wordpress/
-mkdir wp-content
-sudo mount   3.91.199.203:/var/www/html/wordpress/wp-content /var/www/html/wordpress/wp-content
+
+sudo mount   54.234.89.39:/var/www/html/wordpress/wp-content /var/www/html/wordpress/wp-content
 
 
 
