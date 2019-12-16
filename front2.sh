@@ -29,12 +29,7 @@ cd /etc/php/7.2/fpm/
 sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' php.ini
 
 
-# Descargamos Wordpress
-cd /var/www/html
-wget https://wordpress.org/latest.tar.gz
 
-# Descomprimimos el archivo recién descargado
-tar -zxvf latest.tar.gz
 
 # Concedemos permisos a Wordpress
 chown www-data:www-data * -R
