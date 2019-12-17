@@ -13,7 +13,7 @@ apt-get install php libapache2-mod-php php-mysql -y
 #Instalamos adminer
 cd /var/www/html
 mkdir adminer
-cd adminer
+cd adminerd
 wget https://github.com/vrana/adminer/releases/download/v4.3.1/adminer-4.3.1-mysql.php
 mv adminer-4.3.1-mysql.php index.php
 
@@ -62,10 +62,6 @@ cd /var/www/html/wordpress/
 echo "define( 'WP_SITEURL', 'http://52.23.233.247/wordpress' );" >> wp-config.php
 echo "define( 'WP_HOME', 'http://52.23.233.247' );" >> wp-config.php
 
-# Configuración de WordPress en un directorio que no es el raíz
-sudo cp /var/www/html/wordpress/index.php /var/www/html/index.php
-cd /var/www/html/
-sed -i 's#wp-blog-header.php#wordpress/wp-blog-header.php#' index.php
 
 # Creamos un archivo .htaccess
 cd /home/ubuntu
