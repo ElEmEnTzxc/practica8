@@ -1,34 +1,29 @@
 #!/bin/bash
-#Este script lo ejecutaremos en la maquina que actuara como apache-server para ello instalaremos el apache y sus paquetes ademas de clonar la practica y configurar el acceso a la$
-#Actualizamos los repositorios
+#actualizamos los repositorios
 apt-get update
 
-#instalamos apache
+#Instalamos apache
 apt-get install apache2 -y
 
 #Instalamos paquetes para apache
 apt-get install php libapache2-mod-php php-mysql -y
 
-#Activacion de modulos de apache
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod proxy_ajp
-sudo a2enmod rewrite
-sudo a2enmod deflate
-sudo a2enmod headers
-sudo a2enmod proxy_balancer
-sudo a2enmod proxy_connect
-sudo a2enmod proxy_html
-sudo a2enmod lbmethod_byrequests
+#Activamos modulos
+a2enmod proxy
+a2enmod proxy_http
+a2enmod proxy_ajp
+a2enmod rewrite
+a2enmod deflate
+a2enmod headers
+a2enmod proxy_balancer
+a2enmod proxy_connect
+a2enmod proxy_html
+a2enmod lbmethod_byrequests
 
-#Configuracion del balanceador
-#Editamos el archivo 000-default.conf que está en el directorio /etc/apache2/sites-enabled
-cd /home/ubuntu
-rm -r practica8/
-sudo git clone https://github.com/ElEmEnTzxc/practica8.git
-cd /home/ubuntu/practica8
-sudo cp 000-default.conf /etc/apache2/sites-enabled/
-
-
-#Reiniciamos el servidor apache
+#Copiamos el archivo 000-default.conf que está a el que esta en el directorio /etc/apache2/sites-enabled
+cd ~
+git clone https://github.com/ElEmEnTzxc/practica8 
+cp practica8/000-default.conf /etc/apache2/sites-enabled/
+ 
+#Reiniciamos Apache
 sudo /etc/init.d/apache2 restart
