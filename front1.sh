@@ -24,9 +24,6 @@ apt-get install git -y
 apt-get install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 apt-get install php-fpm php-mysql -y
 
-# Configuración de php-fpm
-cd /etc/php/7.2/fpm/
-sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' php.ini
 
 # Descargamos Wordpress
 cd /var/www/html
