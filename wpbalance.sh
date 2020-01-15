@@ -22,8 +22,9 @@ a2enmod lbmethod_byrequests
 
 #Copiamos el archivo 000-default.conf que está a el que esta en el directorio /etc/apache2/sites-enabled
 cd ~
-git clone https://github.com/ElEmEnTzxc/practica8 
+git clone https://github.com/ElEmEnTzxc/practica8
 cp practica8/000-default.conf /etc/apache2/sites-enabled/
- 
+
 #Reiniciamos Apache
 sudo /etc/init.d/apache2 restart
+
