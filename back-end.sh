@@ -1,6 +1,8 @@
 #!/bin/bash
-#Instalamos git
+set -x
 apt-get update
+
+#Instalamos git
 apt-get install git -y
 
 #instalamos las debconf-utils
@@ -31,9 +33,5 @@ mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES"
 #Reiniciamos el servicio mysql
 systemctl restart mysql
 
-cd /home/ubuntu
-rm -rf iaw-practica-lamp
-git clone  https://github.com/josejuansanchez/iaw-practica-lamp.git
-mysql -u root -p$DB_ROOT_PASSWD < /home/ubuntu/iaw-practica-lamp/db/database.sql
 
 
