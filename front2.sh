@@ -25,6 +25,6 @@ apt-get install php-fpm php-mysql -y
 apt-get install nfs-common -y
 
 # Creamos el punto de montaje en el cliente NFS
-mount 34.224.79.119:/var/www/html /var/www/html
+mount 54.152.171.100:/var/www/html /var/www/html
 
 
