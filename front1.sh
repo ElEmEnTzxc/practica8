@@ -30,6 +30,10 @@ wget https://wordpress.org/latest.tar.gz
 # Descomprimimos el archivo recién descargado
 tar -zxvf latest.tar.gz 
 cp /var/www/html/wordpress/* /var/www/html/
+cd /wordpress
+mv wp-content /var/www/html
+mv wp-includes /var/www/html
+mv wp-admin /var/www/html
 rm -r wordpress
 
 # Modificamos el archivo wp-config-example.php
