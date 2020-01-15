@@ -1,16 +1,16 @@
 #!/bin/bash
 set -x
 
-#Actualizamos los repositorios
+# Actualizamos los repositorios
 apt-get update
 
-#Instalamos apache
+# Instalamos apache2
 apt-get install apache2 -y
 
-#Instalamos paquetes para apache
+# Instalamos paquetes para apache
 apt-get install php libapache2-mod-php php-mysql -y
 
-#Instalamos adminer
+# Instalamos adminer
 cd /var/www/html
 mkdir adminer
 cd adminer
@@ -24,6 +24,7 @@ apt-get install git -y
 apt-get install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 apt-get install php-fpm php-mysql -y
 
+# Entramos en la carpeta html para borrar el index.html y que lea el index.php
 cd /var/www/html
 rm -r index.html
 
@@ -34,9 +35,9 @@ sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' php.ini
 # Instalamos el cliente NFS
 sudo apt-get install nfs-common -y
 
-# Creamos el punto de montaje en el cliente NFS
+# Creamos el punto de montaje en el cliente NFS que es el frontal 2
 sudo mount 54.152.80.179:/var/www/html/ /var/www/html/
 
-# Editamos el archivo /etc/fstab
+# Metemos la siguiente linea dentro del archivo /etc/fstab 
 cd /etc/
 echo "54.152.80.179:/var/www/html/ /var/www/html/  nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
