@@ -39,7 +39,7 @@ mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sed -i 's/database_name_here/wordpress' /var/www/html/wp-config.php
 sed -i 's/username_here/wordpress' /var/www/html/wp-config.php
 sed -i 's/password_here/wordpress' /var/www/html/wp-config.php
-sed -i 's/localhost/3.94.203.50/' /var/www/html/wp-config.php
+sed -i 's/localhost/34.201.173.36/' /var/www/html/wp-config.php
 
 # Concedemos permisos a Wordpress
 chown www-data:www-data * -R
@@ -51,8 +51,8 @@ apt-get install nfs-kernel-server -y
 
 # Dirección del sitio y direccion URL 
 cd /var/www/html/
-echo "define( 'WP_SITEURL', 'http://34.205.25.119' );" >> wp-config.php
-echo "define( 'WP_HOME', 'http://34.205.25.119' );" >> wp-config.php
+echo "define( 'WP_SITEURL', 'http://3.85.95.56' );" >> wp-config.php
+echo "define( 'WP_HOME', 'http://3.85.95.56' );" >> wp-config.php
 
 
 
@@ -85,7 +85,7 @@ chown nobody:nogroup /var/www/html/
 
 # Editamos el archivo /etc/exports
 cd /etc/
-echo "/var/www/html/      34.228.185.147(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/var/www/html/      3.86.149.70(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 
 
 # Reiniciamos el servicio nfs-kernel-server
